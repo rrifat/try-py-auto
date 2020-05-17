@@ -7,15 +7,15 @@ power_gateway = "power-gateway provider"
 workbook = xlsxwriter.Workbook("demo.xlsx")
 worksheet = workbook.add_worksheet()
 
-lines = []
+ids = []
 with open("files/ids.txt") as f_n:
     for line in f_n.readlines():
-        lines.append(line.strip())
+        ids.append(line.strip())
 
 i = 1
 j = 1
 
-for msg_id in lines:
+for msg_id in ids:
     with open("files/catalina.2020-04-13.out", "r") as f:
         for line in f:
             if msg_id in line and request_str in line:
