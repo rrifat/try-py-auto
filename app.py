@@ -8,7 +8,7 @@ workbook = xlsxwriter.Workbook("demo.xlsx")
 worksheet = workbook.add_worksheet()
 
 lines = []
-with open("files/new.txt") as f_n:
+with open("files/ids.txt") as f_n:
     for line in f_n.readlines():
         lines.append(line.strip())
 
