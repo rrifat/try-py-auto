@@ -3,6 +3,7 @@ import json
 import re
 
 
+# Helper functions
 def get_message(line):
     l = re.findall(r"\{[^{}]+\}", line.strip())
     output_str = None
@@ -15,6 +16,7 @@ def get_message(line):
     return output_str
 
 
+# Main
 request_str = "createRecharge Req"
 response_str = "createRecharge Resp"
 power_gateway = "power-gateway provider"
