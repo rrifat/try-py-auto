@@ -8,9 +8,11 @@ def get_message(line):
     output_str = None
     if len(l) > 0:
         response_dict = json.loads(l[0])
-        output_str = (
-            f"{response_dict['RESPONSECODE']}: {response_dict['RESPONSECONTENT']}"
-        )
+        print(response_dict)
+        if "RESPONSECODE" in response_dict and "RESPONSECONTENT" in response_dict:
+            output_str = (
+                f"{response_dict['RESPONSECODE']}: {response_dict['RESPONSECONTENT']}"
+            )
     return output_str
 
 
