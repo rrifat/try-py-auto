@@ -12,10 +12,10 @@ output_file = "demo.xlsx"
 
 # Helpers
 def get_message(line):
-    l = re.findall(r"\{[^{}]+\}", line.strip())
+    found_strings = re.findall(r"\{[^{}]+\}", line.strip())
     output_str = None
-    if len(l) > 0:
-        response_dict = json.loads(l[0])
+    if len(found_strings) > 0:
+        response_dict = json.loads(found_strings[0])
         if "RESPONSECODE" in response_dict and "RESPONSECONTENT" in response_dict:
             output_str = (
                 f"{response_dict['RESPONSECODE']}: {response_dict['RESPONSECONTENT']}"
