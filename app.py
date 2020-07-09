@@ -5,8 +5,9 @@ import re
 request_str = "createRecharge Req"
 response_str = "createRecharge Resp"
 power_gateway = "power-gateway provider"
+power_purchase = "powerPurchase"
 
-log_file = "files/catalina.2020-04-13.out"
+log_file = "files/catalina.2020-06-18.out"
 id_file = "files/ids.txt"
 output_file = "demo.xlsx"
 
@@ -25,7 +26,7 @@ def get_message(line):
 
 def get_responses(exec_str, file):
     for line in file:
-        if exec_str in line and response_str in line:
+        if exec_str in line and (response_str in line or power_purchase in line):
             return [line, get_message(line)]
         if exec_str in line and power_gateway in line:
             return [line, get_message(line)]
@@ -50,7 +51,7 @@ id_row = 1
 for msg_id in ids:
     with open(log_file, "r") as f:
         for line in f:
-            if msg_id in line and request_str in line:
+            if msg_id in line and (request_str in line or power_purchase in line):
                 exec_str = line.split()[3]
 
                 worksheet.write("A" + str(id_row), msg_id)
