@@ -1,4 +1,4 @@
-from openpyxl import Workbook, load_workbook
+from openpyxl import load_workbook
 
 file = "files/token_import.xlsx"
 workbook = load_workbook(file)
